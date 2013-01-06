@@ -5,12 +5,12 @@
   "author": "danlangford",
   "description": "an app for managing sqlite databases",
  
-  "dependencies" : {
-    "express"   :  "*"
+  "dependencies": {
+    "express": "2.5.x"
   },
-  
-  "engines" : {
-      "node": ">=0.6"
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
   }
   
 }
