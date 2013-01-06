@@ -1,0 +1,15 @@
+{
+  "name": "sea-lion",
+  
+  "version": "0.0.1",
+  "author": "danlangford",
+  "description": "an app for managing sqlite databases",
+ 
+  "dependencies" : {
+    "http-server"   :  "*"
+  },
+
+  "engines": {
+    "node": ">=0.6"
+  }
+}
