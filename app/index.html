@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="myApp">
+    
+    <head>
+        <meta charse="utf-8" />
+        <title>sea lion</title>
+        <script src="lib/sql.js"></script>
+        <link rel="stylesheet" href="css/app.css" />
+    </head>
+    
+    <body>
+        <h2>sea lion w/
+            <a href="http://syntensity.com/static/sql.html">sql.js</a>
+        </h2>sqlite compiled to javascript
+        <br />
+        <b>Enter some SQL</b>or
+        <span id="zone" class="dragOut">DROP A FILE HERE</span>
+        <br />
+        <textarea rows="10" cols="80" id="commands">
+CREATE TABLE my_table(key INTEGER, value INTEGER, text VARCHAR(100));
+INSERT INTO my_table VALUES(1, 25, 'the first item');
+INSERT INTO my_table VALUES(2, 987, 'the second item');
+SELECT key, text FROM my_table WHERE value == 987;
+        </textarea>
+        <br />
+        <button id="sqlButt">Execute</button>
+        <pre><div id="output"></div></pre>
+        <h3>
+            <a href="javascript:" id="dbLink">click to prepare DB for export</a>
+        </h3>
+        <h3>
+            <a href="javascript:" id="dbDrag">drag to download DB</a>
+        </h3>
+        
+        <div>myApp: v<span app-version></span></div>
+<!--
+in production use
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+-->
+        <script src="lib/angular/angular.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/directives.js"></script>
+        <script src="js/sea-lion.js"></script>
+    </body>
+</html>
