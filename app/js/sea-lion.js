@@ -97,7 +97,7 @@ zone.ondrop = function(event) {
             makeTheDrop(event,function(x){
                 db=SQL.open(x);
 				var q = "SELECT name FROM sqlite_master WHERE type='table';";
-				commands.innetText = q;
+				commands.innerText = q;
                 execute(q);
             });
             dragOut(zone);
