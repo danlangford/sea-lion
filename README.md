@@ -12,4 +12,4 @@ i would love to make this more of a 'webapp' where you can create, update and ma
 * [sql.js](https://github.com/kripken/sql.js)
 * [SQLite](http://www.sqlite.org/)
 
-[dont change for the skae of changing]
+
