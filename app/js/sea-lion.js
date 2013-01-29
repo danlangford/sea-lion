@@ -56,21 +56,21 @@ function grabDB(cb) {
         var file = event.dataTransfer.files[0];
         zone.classList.remove('error');
         zone.classList.remove('success');
-        commands.innerText = 'Loading filename:'+file.name+' size:'+file.size+' ... ';
+        dropStatus.innerText = 'Loading filename:'+file.name+' size:'+file.size+' ... ';
         var reader = new FileReader();
         reader.onload = function(e) {
             // run callback passing in the file TEXT
             try {
                 cb(e.target.result);
                 zone.classList.add('success');
-                output.innerText = '[success reading file filename:'+file.name+' size:'+file.size+']';
+                document.innerText += '[success reading file filename:'+file.name+' size:'+file.size+']';
             } catch (err) {
                 zone.classList.add('error');
             }
 
         };
         reader.onerror = function() {
-            output.innerText = '[error reading file filename:'+file.name+' size:'+file.size+']';
+            dropStatus.innerText += '[error reading file filename:'+file.name+' size:'+file.size+']';
         };
         reader.readAsBinaryString(file);
         return false;
@@ -81,7 +81,6 @@ function dragIn(z){
         z.classList.remove(e);
     });
     z.classList.add('dragEnter');
-    return false;
 }
 
 function dragOut(z) {
@@ -89,12 +88,11 @@ function dragOut(z) {
         z.classList.remove(e);
     });
     z.classList.add('dragOut');
-    return false;
 }
 
-zone.ondragenter = function(){ dragIn(zone); };
-zone.ondragover = function(){ dragIn(zone); };
-zone.ondragleave = function(){ dragOut(zone); };
+zone.ondragenter = function(){ dragIn(zone); return false; };
+zone.ondragover = function(){ dragIn(zone); return false; };
+zone.ondragleave = function(){ dragOut(zone); return false; };
 zone.ondrop = function(event) {
             makeTheDrop(event,function(x){
                 db=SQL.open(x);
