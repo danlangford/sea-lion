@@ -33,15 +33,8 @@ function print(text) {
 function grabDB(cb) {
 
 
-    // create a BlobBuilder, add the DB data, get the Blob
-
-    var bb = new WebKitBlobBuilder();
-    // BlobBuilder is deprecated. Use "Blob" constructor instead.
-    bb.append(db.exportData().buffer);
-    // ArrayBuffer values are deprecated in Blob Constructor. Use ArrayBufferView instead.
-    var blob = bb.getBlob(f.mimetype);
-
-
+    // create a Blob w/the DB data
+	var blob = new Blob([db.exportData()],{type: f.mimeType});
 
     // we will need a FileReader to read the Blob
     // read blob AS DataUrl and store in F
