@@ -63,7 +63,7 @@ function grabDB(cb) {
             try {
                 cb(e.target.result);
                 zone.classList.add('success');
-                document.innerText += '[success reading file filename:'+file.name+' size:'+file.size+']';
+                dropStatus.innerText += '[success reading file filename:'+file.name+' size:'+file.size+']';
             } catch (err) {
                 zone.classList.add('error');
             }
@@ -96,7 +96,9 @@ zone.ondragleave = function(){ dragOut(zone); return false; };
 zone.ondrop = function(event) {
             makeTheDrop(event,function(x){
                 db=SQL.open(x);
-                execute("SELECT name FROM sqlite_master WHERE type='table';");
+				var q = "SELECT name FROM sqlite_master WHERE type='table';";
+				commands.innetText = q;
+                execute(q);
             });
             dragOut(zone);
             return false;
